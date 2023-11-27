@@ -15,6 +15,14 @@ class CustomComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth =MediaQuery.of(context).size.width;
+    final smallTitle =24.0;
+    final smallbuttonText =18.0;
+    final fontsize1 =screenWidth*0.02;
+    final fontsize2 =screenWidth*0.01;
+    final rediusSize1 = 100.0;
+    final rediusSize2 = screenWidth*0.5;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -22,24 +30,25 @@ class CustomComponent extends StatelessWidget {
           title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 24,
+            fontSize: screenWidth>600 ?fontsize1 :smallTitle,
           ),
         ),
-        SizedBox(height: 8),
+        // SizedBox(height: 8),
         Text(
           subtitle,
           style: TextStyle(
-            fontSize: 18,
+                        fontSize: screenWidth>600 ?fontsize1 :smallbuttonText,
+
           ),
         ),
-        SizedBox(height: 8),
+        // SizedBox(height: 8),
         ElevatedButton(
           onPressed: () {
             // Button tap logic
           },
           child: Text(buttonText),
         ),
-        SizedBox(height: 8),
+        // SizedBox(height: 8),
         // CircleAvatar(
         //   radius: 50,
         //   child: ClipOval(
@@ -54,7 +63,7 @@ class CustomComponent extends StatelessWidget {
         // ),
         CircleAvatar(
           radius:
-              100, // Adjust this value to change the size of the CircleAvatar
+              screenWidth>600 ?rediusSize2:rediusSize1, // Adjust this value to change the size of the CircleAvatar
           backgroundImage: AssetImage("images/$imageName"),
         ),
       ],

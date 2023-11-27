@@ -16,36 +16,44 @@ class CustomIntroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    final fontsize = screenWidth * 0.04;
+    final smalltitle =19.0;
+    final smallcontent =13.0;
     return Column(
+       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Expanded(
-          flex: 3,
-            // child:Padding(
-              // padding: EdgeInsets.all(16.0),
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenWidth * 0.04,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            // )
-    ),
-        Expanded(
-          flex: 3,
-          child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: Text(
-            style: TextStyle(
-              fontSize: screenWidth * 0.02,
-            ),
-            description,
-            softWrap: true,
-            textAlign: TextAlign.center,
+        // child:Padding(
+        // padding: EdgeInsets.all(16.0),
+       Container(
+        width: 320,
+        // height: 50,
+        child:  Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: screenWidth > 600 ? fontsize : smalltitle,
           ),
-        ),),
-        SizedBox(height: 20.0),
+          textAlign: TextAlign.center,
+        ),
+       ),
+        // )
+
+        Container(
+          width: 340,
+          // height: 50,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Text(
+              style: TextStyle(
+               fontSize: screenWidth > 600 ? fontsize : smallcontent,
+              ),
+              description,
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+       
         ButtonBar(
           alignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -69,7 +77,6 @@ class CustomIntroSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 20.0),
       ],
     );
   }
