@@ -34,18 +34,10 @@ class MyMusicTheoryApp extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4)
                     ),
                   ),
-                      Container(
-                    width: 350,
-                    height: 150,
-                    child: Image.asset('images/page1.png'),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1,color: Colors.grey),
-                      borderRadius: BorderRadius.circular(4)
-                    ),
-                  ),
+                
                   Container(
                     width: 350,
-                    height: 300,
+                    height: 550,
                     child: MusicTheoryQuiz(),
                     decoration: BoxDecoration(
                       border: Border.all(width: 1,color: Colors.grey),

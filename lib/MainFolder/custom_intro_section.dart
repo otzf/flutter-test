@@ -16,7 +16,9 @@ class CustomIntroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    final fontsize = screenWidth * 0.04;
+    final fontsize1 = screenWidth * 0.04;
+    final fontsize2 = screenWidth * 0.02;
+
     final smalltitle =19.0;
     final smallcontent =13.0;
     return Column(
@@ -31,7 +33,7 @@ class CustomIntroSection extends StatelessWidget {
           title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: screenWidth > 600 ? fontsize : smalltitle,
+            fontSize: screenWidth > 600 ? fontsize1 : smalltitle,
           ),
           textAlign: TextAlign.center,
         ),
@@ -45,7 +47,7 @@ class CustomIntroSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               style: TextStyle(
-               fontSize: screenWidth > 600 ? fontsize : smallcontent,
+               fontSize: screenWidth > 600 ? fontsize2 : smallcontent,
               ),
               description,
               softWrap: true,

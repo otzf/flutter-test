@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // 第一题模板
 class MusicTheoryQuiz extends StatefulWidget {
   @override
@@ -15,7 +16,14 @@ class _MusicTheoryQuizState extends State<MusicTheoryQuiz> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        
+          Container(
+            width: 350,
+            height: 150,
+            child: Image.asset('images/page1.png'),
+            decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.grey),
+                borderRadius: BorderRadius.circular(4)),
+          ),
           RadioListTile<String>(
             title: Text('4/4'),
             value: '4/4',
@@ -47,7 +55,6 @@ class _MusicTheoryQuizState extends State<MusicTheoryQuiz> {
             },
           ),
           SizedBox(height: 16),
-        
         ],
       ),
     );

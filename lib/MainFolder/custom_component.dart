@@ -21,7 +21,7 @@ class CustomComponent extends StatelessWidget {
     final fontsize1 =screenWidth*0.02;
     final fontsize2 =screenWidth*0.01;
     final rediusSize1 = 100.0;
-    final rediusSize2 = screenWidth*0.5;
+    final rediusSize2 = screenWidth*0.25;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
