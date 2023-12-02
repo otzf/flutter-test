@@ -18,14 +18,11 @@ class RadioContent {
   }
 }
 
-class RadioPackage extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => _RadioPackage();
-}
-class _RadioPackage extends State<RadioPackage>{
-  final api ="http://192.168.31.149:1338/api/radio-contents";
-  late Future<List<RadioContent>> futureRadio;
-  Future<List<RadioContent>> fatchRadio() async{
+class RadioPackage {
+
+  final String api;
+  RadioPackage(this.api);
+  Future<List<RadioContent>> fetchRadio() async{
     // 先获取响应
     final response= await http.get(Uri.parse(api));
     //判断返回的响应状态
@@ -44,45 +41,6 @@ class _RadioPackage extends State<RadioPackage>{
       throw Exception("fialed to load");
     }
   }
-  @override
-  void initState(){
-    super.initState();
-    futureRadio =fatchRadio();
-  }
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(title: Text("api测试"),backgroundColor: Colors.blue,),
-      body: FutureBuilder<List<RadioContent>>(
-        future: fatchRadio(),
-        builder: (context,snapshot){
-          if(snapshot.connectionState ==ConnectionState.waiting){
-            return Center(child: CircularProgressIndicator(),);
-          }else if(snapshot.hasError){
-            return Center(child: Text("${snapshot.error}"),);
-          }else if(!snapshot.hasData || snapshot.data!.isEmpty){
-            return Center(child: Text("no data avilable"),);
-          }else{
-            List<RadioContent> contents =snapshot.data!;
-            return ListView.builder(
-              itemCount: contents.length,
-              itemBuilder:(context,index){
-                RadioContent content =contents[index];
-                return Column(
-                  children: [
-                    Text("${content.choose1}"),
-                    Text("${content.choose2}"),
-                    Text("${content.choose3}"),
-                    Image.asset("${content.pic}"),
 
-                  ],
-                );
-              } 
-              );
-          }
-        }
-      )
-    );
-  }
+ 
 }
