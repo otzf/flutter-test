@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'packageText/RadioPack.dart';
 import 'PageConpenont/page.dart';
+import 'PageConpenont/bottomBar.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -67,7 +68,19 @@ class MyPackage extends StatelessWidget{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(title: Text("封装好的"),),
-      body: MusicTheoryQuiz(),
+      body:ListView(
+        children: [
+          Column(
+        children: [
+          Container(
+            height: 700,
+            child:  MusicTheoryQuiz(),
+          ),
+         BottomBar()
+        ],
+      )
+        ],
+      )
     );
   }
 }
